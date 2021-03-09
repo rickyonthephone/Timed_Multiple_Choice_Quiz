@@ -3,7 +3,8 @@ body {
 }
 
 .startBtn,
-.question_box {
+.question_box,
+.summary_box {
   position:absolute;
   top: 50%;
   left: 50%;
@@ -26,6 +27,7 @@ body {
     border-color: black
 }
 .question_box {
+    display: none;
     background-color: white;
     width: 600px;
     border-radius: 5px;
@@ -111,9 +113,41 @@ body {
     margin-top: 20px;
 }
 
+.possible_answers .option:last-child {
+    margin-bottom: 3px;
+}
+
 .possible_answers .option:hover{
     background-color: red;
     font-weight: 600;
     color:white;
     border-color: #444444;
+}
+
+.summary_box {
+    background-color: white;
+    border-color: red;
+    border-radius: 5px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    text-align: center;
+    flex-direction: column;
+    width: 350px;
+}
+.summary_box .summary_text {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+.summary_box .score_text span {
+    display: flex; 
+    margin: 10px;
+    font-size: 18px;
+    font-weight: 500px;
+}
+
+.summary_box .score_text span p {
+    padding: 0 4px;
+    font-weight: 700;
 }
