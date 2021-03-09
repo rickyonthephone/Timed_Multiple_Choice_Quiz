@@ -13,6 +13,13 @@ body {
               0px 10px 25px 0px black;
 }
 
+.question_box.activeQuiz {
+    z-index:5;
+    opacity: 1;
+    pointer-events: auto;
+    transform:translate(-50%, -50%) scale(1);
+}
+
 .startBtn button {
     font-size: 30px;
     font-weight: 275;
@@ -29,7 +36,6 @@ body {
     border-color: black
 }
 .question_box {
-    display: none;
     background-color: white;
     width: 600px;
     border-radius: 5px;
@@ -38,6 +44,9 @@ body {
     border-radius: 5px;
     border-style: solid;
     border-color: red;
+    opacity: 0;
+    pointer-events: none;
+    transform:translate(-50%, -50%) scale (1);
 }
 .question_box header {
     height: 50px;
