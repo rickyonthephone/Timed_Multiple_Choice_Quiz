@@ -29,7 +29,8 @@ body {
     background-color: white;
     width: 600px;
     border-radius: 5px;
-    height: 260px;
+    height: 300px;
+    width:700px;
     border-radius: 5px;
     border-style: solid;
     border-color: #444444;
@@ -85,18 +86,29 @@ body {
     padding: 0 15px;
     margin-top: 10px;
 }
+
+.question_text {
+    font-weight: 700;
+    font-size: 18px;
+}
 .possible_answers .option {
     border-radius: 5px;
     border-style:solid;
     border-color: red;
     margin-top: 10px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    cursor:pointer;
+    transition: all 0.5s ease;
 }
 
 .possible_answers .option span {
-    display: flex;
-    align-content: center;
-    justify-content: center;
     cursor: pointer;
+}
+
+.possible_answers .option:first-child {
+    margin-top: 20px;
 }
 
 .possible_answers .option:hover{
