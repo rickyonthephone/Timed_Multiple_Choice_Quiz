@@ -1,0 +1,107 @@
+body {
+    background-color: darkslategray;
+}
+
+.startBtn,
+.question_box {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.startBtn button {
+    font-size: 30px;
+    font-weight: 275;
+    border-style: solid;
+    border-color: red;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.startBtn button:hover {
+    background-color: red;
+    color: white;
+    border-color: black
+}
+.question_box {
+    background-color: white;
+    width: 600px;
+    border-radius: 5px;
+    height: 260px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #444444;
+}
+.question_box header {
+    height: 50px;
+    padding: 0 15px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    border-radius: 5px;
+}
+
+.question_box .title {
+    font-size: 18px;
+    font-weight: 500;
+    align-content: center;
+}
+
+.question_box .timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 35px;
+    background: #444444;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: red;
+}
+
+.question_box .timer .time_text {
+    color: white;
+    padding-left: 8px;
+    font-size: 15px;
+    font-weight: 300;
+    align-content: center;
+    justify-content: center;
+}
+
+.question_box .timer .time_seconds {
+    color: white;
+    font: size 18px;
+    font-weight: 500;
+    padding: 5px;
+    background-color: red;
+    align-content: center;
+    justify-content: center;
+}
+
+.question_box section {
+    padding: 0 15px;
+    margin-top: 10px;
+}
+.possible_answers .option {
+    border-radius: 5px;
+    border-style:solid;
+    border-color: red;
+    margin-top: 10px;
+}
+
+.possible_answers .option span {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.possible_answers .option:hover{
+    background-color: red;
+    font-weight: 600;
+    color:white;
+    border-color: #444444;
+}
