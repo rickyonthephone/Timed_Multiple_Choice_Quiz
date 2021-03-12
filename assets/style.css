@@ -39,7 +39,7 @@ body {
     background-color: white;
     width: 600px;
     border-radius: 5px;
-    height: 300px;
+    height: 350px;
     width:700px;
     border-radius: 5px;
     border-style: solid;
@@ -135,6 +135,13 @@ body {
     border-color: #444444;
 }
 
+#Next {
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    display: flex;
+
+}
 .summary_box {
     background-color: white;
     border-color: red;
