@@ -8,6 +8,8 @@ const opt2 = document.querySelector("#opt2");
 const opt3 = document.querySelector("#opt3");
 const possible_answers = document.querySelector('.possible_answers');
 const next_question = document.querySelector('#Next');
+const summary_box =document.querySelector(".summary_box");
+var timesUp = "You have run out of time!"
 var score = 0;
 let question_count = 0;
 let timeLeft = document.querySelector('.time_seconds');
@@ -70,6 +72,16 @@ const questions = [
     
     }
 ];
+
+const quizSummary = [ {
+
+    summaryTime: 'You have run out of Time!',
+},
+    {    
+    summaryFinish: 'You have completed the quiz!'
+    }
+];
+
 //Starting Quiz
 startBtn.onclick = ()=>{
     question_box.classList.add('activeQuiz');
@@ -91,22 +103,26 @@ function questionDisplay(index){
 
 // //Could possibly use a for loop here:
 // for (i = 0 ; i < questions[index].options.length ; i++){
-//      document.querySelector("#opt"+i+1).textContent = question[index].options[i] }
+// document.querySelector("#opt"+i+1).textContent = question[index].options[i] }
 };
 
 possible_answers.addEventListener("click", function(e){
     console.log(e.target.textContent)
     if(e.target.textContent == questions[question_count].answer){
-        console.log("corect!")
+        console.log(questions[question_count].numb, "correct")
+
+        localStorage.setItem(questions[question_count].numb, "correct")
+
     }
     else{
-        console.log("wrong!")
+        console.log(questions[question_count].numb, "wrong")
+        localStorage.setItem(questions[question_count].numb, "wrong")
     }
-});
+//next question incremented
+question_count++;
+//display next question
+questionDisplay(question_count)
 
-next_question.addEventListener ('click', function(e) {
-    question_count++;
-    questionDisplay(question_count)
 });
 
 //Function to begin timer
@@ -119,8 +135,18 @@ function timerSet () {
         sendMessage();
     }
     }, 1000); 
-}
+};
 
-function checkAnswer(event) {
-    event.preventDefault
-}
+//display summary if time runs out
+function sendMessage () {
+    const summary_text = document.querySelector(".summary_text");
+
+    if(secondsLeft === 0) {
+        summary_text = quizSummary.summaryTime
+    }
+    else{
+        summary_text = quizSummary.summaryFinish
+        sendMessage();
+    }
+    
+};

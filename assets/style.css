@@ -135,13 +135,6 @@ body {
     border-color: #444444;
 }
 
-#Next {
-    justify-content: center;
-    align-content: center;
-    cursor: pointer;
-    display: flex;
-
-}
 .summary_box {
     background-color: white;
     border-color: red;
