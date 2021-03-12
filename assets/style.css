@@ -113,7 +113,7 @@ body {
     justify-content: center;
     align-content: center;
     cursor:pointer;
-    transition: all 0.5s ease;
+    transition: all 1.0s ease;
 }
 
 .possible_answers .option span {

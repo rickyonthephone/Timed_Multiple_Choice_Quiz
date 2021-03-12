@@ -1,8 +1,8 @@
 // Question arrays with question number, question, choices and answers
-let questions = [
+var questions = [
     {
         numb: 1, 
-        question: 'Commonly used JavaScript data types <em>DO NOT </em>include which item below?', 
+        question: 'Commonly used JavaScript data types DO NOT include which item below?', 
         answer: "Alerts",
         options: [
             "Strings",
@@ -14,11 +14,11 @@ let questions = [
     {
         numb: 2, 
         question: 'The condition in an if/else statement is enclosed within ___________ .', 
-        answer: "Parenthesis",
+        answer: "Parentheses",
         options: [
             "Quotes",
             "Curly Brackets",
-            "Parenthesis",
+            "Parentheses",
             "Square Brackets"
         ]
     },
@@ -41,7 +41,7 @@ let questions = [
             "commas",
             "curley brackets",
             "quotes",
-            "parenthesis"
+            "parentheses"
         ]
     },
     {
