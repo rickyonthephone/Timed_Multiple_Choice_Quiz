@@ -9,11 +9,12 @@ const opt3 = document.querySelector("#opt3");
 const possible_answers = document.querySelector('.possible_answers');
 const next_question = document.querySelector('#Next');
 const summary_box =document.querySelector(".summary_box");
-var timesUp = "You have run out of time!"
-var score = 0;
+
+var userScore = 0;
 let question_count = 0;
 let timeLeft = document.querySelector('.time_seconds');
 var secondsLeft = 60;
+
 const questions = [
     {
         numb: 1, 
@@ -51,7 +52,7 @@ const questions = [
     {
         numb: 4, 
         question: 'String values must be enclosed within ________________ when being assigned to variables.', 
-        answer: "Alerts",
+        answer: "quotes",
         options: [
             "commas",
             "curley brackets",
@@ -88,6 +89,18 @@ startBtn.onclick = ()=>{
     questionDisplay(question_count);
     timerSet();
    };
+   
+//Function to begin timer
+function timerSet () {
+    var timerInterval = setInterval(function() {
+        secondsLeft --;
+        timeLeft.innerHTML = secondsLeft;
+    if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        summaryDisplay();
+    }
+    }, 1000); 
+};
 
 //function to pull quiz question and answer text from arrays in other JS file and putting them into the HTML
 function questionDisplay(index){
@@ -109,14 +122,16 @@ function questionDisplay(index){
 possible_answers.addEventListener("click", function(e){
     console.log(e.target.textContent)
     if(e.target.textContent == questions[question_count].answer){
-        console.log(questions[question_count].numb, "correct")
-
-        localStorage.setItem(questions[question_count].numb, "correct")
+        console.log(questions[question_count].numb, "correct");
+        userScore = userScore +1; 
+        console.log(userScore);
+        localStorage.setItem(questions[question_count].numb, "correct");
 
     }
     else{
-        console.log(questions[question_count].numb, "wrong")
-        localStorage.setItem(questions[question_count].numb, "wrong")
+        secondsLeft = secondsLeft - 15;
+        console.log(questions[question_count].numb, "wrong");
+        localStorage.setItem(questions[question_count].numb, "wrong");
     }
 //next question incremented
 question_count++;
@@ -124,29 +139,3 @@ question_count++;
 questionDisplay(question_count)
 
 });
-
-//Function to begin timer
-function timerSet () {
-    var timerInterval = setInterval(function() {
-        secondsLeft --;
-        timeLeft.innerHTML = secondsLeft;
-    if (secondsLeft === 0) {
-        clearInterval(timerInterval);
-        sendMessage();
-    }
-    }, 1000); 
-};
-
-//display summary if time runs out
-function sendMessage () {
-    const summary_text = document.querySelector(".summary_text");
-
-    if(secondsLeft === 0) {
-        summary_text = quizSummary.summaryTime
-    }
-    else{
-        summary_text = quizSummary.summaryFinish
-        sendMessage();
-    }
-    
-};
