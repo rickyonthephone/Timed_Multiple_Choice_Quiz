@@ -11,7 +11,7 @@ Git code:
 https://github.com/rickyonthephone/Timed_Multiple_Choice_Quiz
 
 Screenshot:
-![screenshot]https://github.com/rickyonthephone/Timed_Multiple_Choice_Quiz/blob/master/assets/images/Screen%20Shot%202021-03-13%20at%201.54.24%20PM.png
+![screenshot](https://github.com/rickyonthephone/Timed_Multiple_Choice_Quiz/blob/master/assets/images/Screen%20Shot%202021-03-13%20at%201.54.24%20PM.png)
 
 
 ## User Story
