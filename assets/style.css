@@ -2,6 +2,7 @@ body {
     background-color: darkslategray;
 }
 
+.startBtn_box,
 .startBtn,
 .question_box,
 .summary_box {
@@ -13,12 +14,26 @@ body {
               0px 10px 25px 0px black;
 }
 
-.question_box.activeQuiz {
+.startBtn_box {
+    height: 250px;
+    background-color: black;
+}
+
+.startBtn_box p{
+    color:white;
+    margin: 20px;
+    position:flex;
+}
+
+.question_box.activeQuiz,
+.summary_box.activeResult {
     z-index:5;
     opacity: 1;
     pointer-events: auto;
     transform:translate(-50%, -50%) scale(1);
 }
+
+
 
 .startBtn button {
     font-size: 30px;

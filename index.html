@@ -10,15 +10,18 @@
         <link rel="stylesheet" href="assets/style.css">
     </head>
     <body>
+        <div class = 'startBtn_box'>
+            <p>5 Questions to Test Your JavaScript Knowledge</p>
     <!-- Start Button to initiate quiz -->
-        <div class = 'startBtn'><button>Start Quiz</button></div>
+            <div class = 'startBtn'><button>Start Quiz</button>
+        </div>
     <!-- Question box layout with timer -->
         <div class = "question_box">
             <header>
                 <div class ="title">Test Your JavaScript Knowledge</div>
                 <div class = "timer">
                     <div class = 'time_text'>Time Remaining</div>
-                    <div class = 'time_seconds'>60</div>
+                    <div class = 'time_seconds'>75</div>
                 </div>
             </header>
             <section>
@@ -42,14 +45,15 @@
             </section>
     <!-- Quiz summary report -->
         <div class = "summary_box">
-            <div class = 'summary_text'>You have completed the quiz!</div>
+            <div class = 'summary_text' id = 'final_text'>
+                <span>You have completed the quiz!</span>
+            </div>
             <div class = 'score_text'>
                 <span>You got <p>2</p> out of <p>5</p> correct.</span>
             </div>
             <div class = 'replayBtn'><button>Replay Quiz</button></div>
         </div>
-<!-- 
-        <script src="/assets/quizqs.js"></script> -->
+<!-- <script src="/assets/quizqs.js"></script> -->
         <script src="/assets/script.js"></script>
     </body>
 </html>

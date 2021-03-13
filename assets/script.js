@@ -13,7 +13,7 @@ const summary_box =document.querySelector(".summary_box");
 var userScore = 0;
 let question_count = 0;
 let timeLeft = document.querySelector('.time_seconds');
-var secondsLeft = 60;
+var secondsLeft = 75;
 
 const questions = [
     {
@@ -125,14 +125,17 @@ possible_answers.addEventListener("click", function(e){
         console.log(questions[question_count].numb, "correct");
         userScore = userScore +1; 
         console.log(userScore);
+        alert ("That is CORRECT!")
         localStorage.setItem(questions[question_count].numb, "correct");
 
     }
     else{
         secondsLeft = secondsLeft - 15;
         console.log(questions[question_count].numb, "wrong");
+        alert ("Nope, that is WRONG! Docking 15 seconds.")
         localStorage.setItem(questions[question_count].numb, "wrong");
     }
+
 //next question incremented
 question_count++;
 //display next question
