@@ -137,10 +137,6 @@ possible_answers.addEventListener("click", function(e){
         localStorage.setItem(questions[question_count].numb, "wrong");
     }
 
-    function quizEnd () {
-
-
-    }
 //next question incremented
 question_count++;
 //display next question
@@ -148,6 +144,7 @@ questionDisplay(question_count)
 
 });
 
+//function to end the game
 function endQuiz () {
     question_box.classList.remove('activeQuiz');
     summary_box.classList.add ('activeSummary');
