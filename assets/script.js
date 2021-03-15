@@ -2,14 +2,14 @@
 const startBtn = document.querySelector(".startBtn button");
 const question_box = document.querySelector(".question_box");
 const replayBtn = document.querySelector(".replayBtn");
-const opt0 = document.querySelector("#opt0"); 
-const opt1 = document.querySelector("#opt1"); 
-const opt2 = document.querySelector("#opt2"); 
-const opt3 = document.querySelector("#opt3");
-const possible_answers = document.querySelector('.possible_answers');
+var opt0 = document.querySelector("#opt0"); 
+var opt1 = document.querySelector("#opt1"); 
+var opt2 = document.querySelector("#opt2"); 
+var opt3 = document.querySelector("#opt3");
+var possible_answers = document.querySelector('.possible_answers');
 const next_question = document.querySelector('#Next');
 const summary_box =document.querySelector(".summary_box");
-
+var summary_text = document.querySelector('.summary_text');
 var userScore = 0;
 let question_count = 0;
 let timeLeft = document.querySelector('.time_seconds');
@@ -97,12 +97,13 @@ function timerSet () {
         timeLeft.innerHTML = secondsLeft;
     if (secondsLeft === 0) {
         clearInterval(timerInterval);
-        summaryDisplay();
     }
     }, 1000); 
+
+    return;
 };
 
-//function to pull quiz question and answer text from arrays in other JS file and putting them into the HTML
+//function to pull quiz question and answer text from arrays put them into the HTML
 function questionDisplay(index){
     const question_text = document.querySelector('.question_text'); 
     // //changing question text with the questions from the array
@@ -132,13 +133,31 @@ possible_answers.addEventListener("click", function(e){
     else{
         secondsLeft = secondsLeft - 15;
         console.log(questions[question_count].numb, "wrong");
-        alert ("Nope, that is WRONG! Docking 15 seconds.")
+        alert ("Nope, that is WRONG! Minus 15 seconds.")
         localStorage.setItem(questions[question_count].numb, "wrong");
     }
 
+    function quizEnd () {
+
+
+    }
 //next question incremented
 question_count++;
 //display next question
 questionDisplay(question_count)
 
 });
+
+function endQuiz () {
+    question_box.classList.remove('activeQuiz');
+    summary_box.classList.add ('activeSummary');
+    score_text.textContent = 'You got' + userScore + 'questions correct! Enter your initials to see the high scores.';
+
+    if(secondsLeft <= 0) {
+        summary_text.textContent = 'You ran out of time!';
+
+    }else{
+        summary_text.textContent = 'You finished the quiz!'
+    }
+
+};
