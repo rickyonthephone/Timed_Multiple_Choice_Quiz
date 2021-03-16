@@ -106,8 +106,13 @@ function timerSet () {
 function questionDisplay(index){
     const question_text = document.querySelector('.question_text'); 
 
+<<<<<<< HEAD
     if(questions[index]) {
         
+=======
+    if(questions[index]){
+
+>>>>>>> 0288a9927c29aa2eb9b610b1c277d91bf9b8e3fa
     // //changing question text with the questions from the array
     question_text.textContent = questions[index].question; 
     // // //changing answers text with the answers from the array
@@ -118,10 +123,16 @@ function questionDisplay(index){
 
     }
     
+<<<<<<< HEAD
     else if(!questions[index]) {
         endQuiz()
+=======
+>>>>>>> 0288a9927c29aa2eb9b610b1c277d91bf9b8e3fa
     }
 
+    if(!questions[index]){
+        endQuiz();
+    }
 // //Could possibly use a for loop here:
 // for (i = 0 ; i < questions[index].options.length ; i++){
 // document.querySelector("#opt"+i+1).textContent = question[index].options[i] }
@@ -160,9 +171,16 @@ function endQuiz () {
     summary_text.textContent = quizSummary[index].summaryTime;
     }
     question_box.classList.remove('activeQuiz');
+<<<<<<< HEAD
     summary_box.classList.add('activeSummary');
     score_text.textContent = 'You got' + userScore + 'questions correct! Enter your initials to see the high scores.';
      
+=======
+    summary_box.classList.add ('activeSummary');
+    const score_text = document.getElementById('final_text');
+    score_text.textContent = 'You got' + '' + userScore + '' + 'questions correct! Enter your initials to see the high scores.';
+
+>>>>>>> 0288a9927c29aa2eb9b610b1c277d91bf9b8e3fa
     if(secondsLeft <= 0) {
         summary_text.textContent = 'You ran out of time!';
 
