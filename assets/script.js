@@ -106,6 +106,9 @@ function timerSet () {
 //function to pull quiz question and answer text from arrays put them into the HTML
 function questionDisplay(index){
     const question_text = document.querySelector('.question_text'); 
+
+    if(questions[index]){
+
     // //changing question text with the questions from the array
     question_text.textContent = questions[index].question; 
     // // //changing answers text with the answers from the array
@@ -114,7 +117,11 @@ function questionDisplay(index){
     opt2.textContent = questions[index].options[2];
     opt3.textContent = questions[index].options[3];
     
+    }
 
+    if(!questions[index]){
+        endQuiz();
+    }
 // //Could possibly use a for loop here:
 // for (i = 0 ; i < questions[index].options.length ; i++){
 // document.querySelector("#opt"+i+1).textContent = question[index].options[i] }
@@ -148,7 +155,8 @@ questionDisplay(question_count)
 function endQuiz () {
     question_box.classList.remove('activeQuiz');
     summary_box.classList.add ('activeSummary');
-    score_text.textContent = 'You got' + userScore + 'questions correct! Enter your initials to see the high scores.';
+    const score_text = document.getElementById('final_text');
+    score_text.textContent = 'You got' + '' + userScore + '' + 'questions correct! Enter your initials to see the high scores.';
 
     if(secondsLeft <= 0) {
         summary_text.textContent = 'You ran out of time!';
