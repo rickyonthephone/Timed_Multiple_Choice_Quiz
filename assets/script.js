@@ -1,7 +1,7 @@
 //Declation of variables
 const startBtn = document.querySelector(".startBtn button");
 const question_box = document.querySelector(".question_box");
-const replayBtn = document.querySelector(".replayBtn");
+
 var opt0 = document.querySelector("#opt0"); 
 var opt1 = document.querySelector("#opt1"); 
 var opt2 = document.querySelector("#opt2"); 
@@ -75,7 +75,6 @@ const questions = [
 ];
 
 const quizSummary = [ {
-
     summaryTime: 'You have run out of Time!',
 },
     {    
@@ -106,6 +105,9 @@ function timerSet () {
 //function to pull quiz question and answer text from arrays put them into the HTML
 function questionDisplay(index){
     const question_text = document.querySelector('.question_text'); 
+
+    if(questions[index]) {
+        
     // //changing question text with the questions from the array
     question_text.textContent = questions[index].question; 
     // // //changing answers text with the answers from the array
@@ -113,7 +115,12 @@ function questionDisplay(index){
     opt1.textContent = questions[index].options[1];
     opt2.textContent = questions[index].options[2];
     opt3.textContent = questions[index].options[3];
+
+    }
     
+    else if(!questions[index]) {
+        endQuiz()
+    }
 
 // //Could possibly use a for loop here:
 // for (i = 0 ; i < questions[index].options.length ; i++){
@@ -146,10 +153,16 @@ questionDisplay(question_count)
 
 //function to end the game
 function endQuiz () {
-    question_box.classList.remove('activeQuiz');
-    summary_box.classList.add ('activeSummary');
-    score_text.textContent = 'You got' + userScore + 'questions correct! Enter your initials to see the high scores.';
+    const question_text = document.querySelector('.summary_text'); 
 
+    if(secondLeft === 0 && quizSummary[index]) {
+
+    summary_text.textContent = quizSummary[index].summaryTime;
+    }
+    question_box.classList.remove('activeQuiz');
+    summary_box.classList.add('activeSummary');
+    score_text.textContent = 'You got' + userScore + 'questions correct! Enter your initials to see the high scores.';
+     
     if(secondsLeft <= 0) {
         summary_text.textContent = 'You ran out of time!';
 
